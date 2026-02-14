@@ -131,30 +131,35 @@
         </div>
     </div>
     <script>
-        function toggleMenu() {
-            const menu = document.getElementById("navLinks");
-            if (window.innerWidth <= 768) {
-                menu.classList.toggle("active");
-            }
-        }
         function cambiarTema() {
-            const body = document.body;
-            const btn = document.getElementById("themeBtn");
-            body.classList.toggle("dark-mode");
-            
-            if (body.classList.contains("dark-mode")) {
-                btn.innerHTML = "☀️ Modo Claro";
-            } else {
-                btn.innerHTML = "🌙 Modo Oscuro";
-            }
-        }
-        window.onload = function() {
+    const body = document.body;
+    const btn = document.getElementById("themeBtn");
+    
+    // El toggle quita o pone la clase 'dark-mode'
+    body.classList.toggle("dark-mode");
+    
+    // Actualizamos el texto del botón según cómo quedó el body
+    if (body.classList.contains("dark-mode")) {
+        btn.innerHTML = "☀️ Modo Claro";
+    } else {
+        btn.innerHTML = "🌙 Modo Oscuro";
+    }
+}
+function toggleMenu() {
+    const menu = document.getElementById("navLinks");
+    if (window.innerWidth <= 768) {
+        menu.classList.toggle("active");
+    }
+}
+window.addEventListener('DOMContentLoaded', (event) => {
     const btn = document.getElementById("themeBtn");
     if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add("dark-mode");
-        btn.innerHTML = "☀️ Modo Claro";
+        if (!document.body.classList.contains("dark-mode")) {
+            document.body.classList.add("dark-mode");
+            btn.innerHTML = "☀️ Modo Claro";
+        }
     }
-};
+});
     </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ecotech Plant | Proyecto 10°</title>
+    <title>Ecotech Plant</title>
     <style>
         :root {
             --fondo: #f0fdf4;
@@ -12,14 +12,12 @@
             --primario: #22c55e;
             --nav-text: #ffffff;
         }
-
         .dark-mode {
             --fondo: #121212;
             --texto: #e2e8f0;
             --tarjeta: #1e1e1e;
             --primario: #16a34a;
         }
-
         body {
             background-color: var(--fondo);
             color: var(--texto);
@@ -38,25 +36,20 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-
         .logo { font-size: 1.4rem; font-weight: bold; color: var(--nav-text); }
-
         .menu-links { display: flex; align-items: center; }
-
         .menu-links a {
             color: var(--nav-text);
             text-decoration: none;
             margin: 0 15px;
             font-weight: 500;
         }
-
         .menu-icon {
             display: none;
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
         }
-
         .menu-icon span {
             width: 25px;
             height: 3px;
@@ -78,11 +71,8 @@
                 padding: 20px 0;
                 box-shadow: 0 5px 10px rgba(0,0,0,0.1);
             }
-
             .menu-links.active { display: flex; }
-
             .menu-links a { margin: 15px 0; font-size: 1.2rem; }
-            
             .btn-dark { margin-top: 10px; }
         }
         .container { width: 90%; max-width: 1000px; margin: 30px auto; }
@@ -102,6 +92,14 @@
             border-radius: 20px;
             cursor: pointer;
         }
+        @media (prefers-color-scheme: dark) {
+    :root {
+        --fondo: #121212;
+        --texto: #e2e8f0;
+        --tarjeta: #1e1e1e;
+        --primario: #16a34a;
+    }
+}
     </style>
 </head>
 <body>
@@ -114,7 +112,6 @@
             <span></span>
             <span></span>
         </div>
-
         <div class="menu-links" id="navLinks">
             <a href="#inicio" onclick="toggleMenu()">Inicio</a>
             <a href="#proyecto" onclick="toggleMenu()">Proyecto</a>
@@ -122,19 +119,17 @@
             <button class="btn-dark" id="themeBtn" onclick="cambiarTema()">🌙 Modo Oscuro</button>
         </div>
     </nav>
-
-    <div class="container">
+        <div class="container">
         <div class="card" id="inicio">
             <h1>Monitor de Plantas Inteligente</h1>
             <p>Ecotech Plant traduce lo que tu planta siente al lenguaje de tu computador. ¡Nunca más dejes que se sequen!</p>
         </div>
 
         <div class="card" id="proyecto">
-            <h2>Tecnología Ecotech</h2>
+            <h1>Tecnología Ecotech</h1>
             <p>Usamos sensores de conductividad eléctrica para medir la humedad del sustrato. Si la resistencia es alta, ¡necesita agua urgente!</p>
         </div>
     </div>
-
     <script>
         function toggleMenu() {
             const menu = document.getElementById("navLinks");
@@ -153,6 +148,13 @@
                 btn.innerHTML = "🌙 Modo Oscuro";
             }
         }
+        window.onload = function() {
+    const btn = document.getElementById("themeBtn");
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add("dark-mode");
+        btn.innerHTML = "☀️ Modo Claro";
+    }
+};
     </script>
 </body>
 </html>

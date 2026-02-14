@@ -106,7 +106,6 @@
         </div>
         <div class="menu-links" id="navLinks">
             <a href="#inicio" onclick="toggleMenu()">Inicio</a>
-            <a href="#proyecto" onclick="toggleMenu()">Proyecto</a>
             <a href="#contacto" onclick="toggleMenu()">Contacto</a>
             <button class="btn-dark" id="themeBtn" onclick="cambiarTema()">🌙 Modo Oscuro</button>
         </div>
@@ -116,21 +115,43 @@
             <h1>Monitor de Plantas Inteligente</h1>
             <p>Ecotech Plant traduce lo que tu planta siente al lenguaje de tu computador. ¡Nunca más dejes que se sequen!</p>
         </div>
-
+        <div class="menu-links" id="navLinks">
+    <a href="#inicio" onclick="toggleMenu()">Inicio</a>
+    <a href="#materiales" onclick="toggleMenu()">Materiales</a> <a href="#proyecto" onclick="toggleMenu()">Proyecto</a>
+    <a href="#contacto" onclick="toggleMenu()">Contacto</a>
+    <button class="btn-dark" id="themeBtn" onclick="cambiarTema()">🌙 Modo Oscuro</button>
+</div>
         <div class="card" id="proyecto">
             <h1>Tecnología Ecotech</h1>
             <p>Usamos sensores de conductividad eléctrica para medir la humedad del sustrato. Si la resistencia es alta, ¡necesita agua urgente!</p>
-        </div>
+        </div><section id="materiales" class="card">
+    <h2>🛠️ Materiales Utilizados</h2>
+    <p>Estos son los componentes principales de nuestro dispositivo:</p>
+    <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+        <tr style="background-color: var(--primario); color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Componente</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Función</th>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Sensor de Humedad</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Mide el agua en la tierra.</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Placa de Control</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Procesa los datos.</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;">Cables Jumpers</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Conectan todo el circuito.</td>
+        </tr>
+    </table>
+</section>
     </div>
     <script>
         function cambiarTema() {
     const body = document.body;
     const btn = document.getElementById("themeBtn");
-    
-    // El toggle quita o pone la clase 'dark-mode'
     body.classList.toggle("dark-mode");
-    
-    // Actualizamos el texto del botón según cómo quedó el body
     if (body.classList.contains("dark-mode")) {
         btn.innerHTML = "☀️ Modo Claro";
     } else {
